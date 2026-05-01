@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📘 PILEAKER INSTALLING DOCUMENTATION · Full Original Commands</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0f1a;
+      color: #eef5ff;
+      padding: 2rem 1.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.light {
+      background: #f0f4f9;
+      color: #0a1c2f;
+    }
+    .container { max-width: 1300px; margin: 0 auto; }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #22c55e40;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #22c55e, #3b82f6, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .badge-total { font-size: 0.8rem; opacity: 0.7; margin-top: 0.3rem; }
+    .theme-toggle {
+      background: #1e2a3a;
+      padding: 0.3rem;
+      border-radius: 60px;
+      display: flex;
+      gap: 0.3rem;
+    }
+    body.light .theme-toggle { background: #cbd5e1; }
+    .theme-btn {
+      background: transparent;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #010409;
+      transition: all 0.2s;
+    }
+    .theme-btn.active {
+      background: #22c55e;
+      color: #0a0f1a;
+      box-shadow: 0 0 8px #22c55e;
+    }
+    body.light .theme-btn.active { background: #0f5c38; color: white; }
+    
+    .section {
+      background: #111827;
+      border-radius: 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid #22c55e20;
+      overflow: hidden;
+    }
+    body.light .section { background: #ffffff; border-color: #dce5f0; box-shadow: 0 8px 20px rgba(0,0,0,0.03); }
+    .section-header {
+      padding: 1.2rem 1.8rem;
+      background: #0f172a;
+      border-bottom: 1px solid #22c55e20;
+      font-weight: 700;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    body.light .section-header { background: #f8fafc; border-bottom-color: #e2edf7; }
+    .section-header i { color: #22c55e; font-size: 1.4rem; }
+    .section-content { padding: 1.8rem; }
+    
+    .command-item {
+      background: #0a0f1a;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #2d3e54;
+      transition: 0.1s;
+    }
+    body.light .command-item { background: #f8fafd; border-color: #e2edf7; }
+    .command-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 1rem 1.2rem;
+    }
+    .command-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      background: #020617;
+      padding: 0.4rem 0.9rem;
+      border-radius: 12px;
+      word-break: break-all;
+      color: #bef264;
+      max-width: 85%;
+    }
+    body.light .command-text { background: #eef3fc; color: #155f7c; }
+    .copy-btn {
+      background: #1e3a5f;
+      border: none;
+      padding: 0.45rem 1.2rem;
+      border-radius: 2rem;
+      color: white;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.15s;
+    }
+    .copy-btn:hover { background: #22c55e; transform: scale(0.98); }
+    .command-desc {
+      padding: 0.3rem 1.2rem 0.8rem;
+      font-size: 0.75rem;
+      color: #9ab3d0;
+      border-top: 1px solid #1f3142;
+    }
+    body.light .command-desc { color: #3a5b7a; border-top-color: #e2e8f0; }
+    
+    .json-block {
+      background: #020617;
+      padding: 1rem;
+      border-radius: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      color: #bef264;
+    }
+    body.light .json-block { background: #eef3fc; color: #155f7c; }
+    
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+    .image-card {
+      background: #0f172a;
+      border: 2px dashed #2c7da0;
+      border-radius: 1.2rem;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    body.light .image-card { background: #ffffff; border-color: #7e9dbb; }
+    .image-card:hover { transform: translateY(-3px); border-color: #22c55e; }
+    .image-icon { font-size: 2.2rem; color: #22c55e; margin-bottom: 0.5rem; display: block; }
+    .image-filename { font-family: monospace; font-size: 0.7rem; background: #00000066; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; }
+    .image-caption { font-weight: 600; margin-top: 0.6rem; font-size: 0.8rem; }
+    .mock-preview { font-size: 0.65rem; font-family: monospace; margin-top: 0.6rem; background: #010409; padding: 0.3rem; border-radius: 8px; color: #9ec8f0; }
+    body.light .mock-preview { background: #f1f5f9; color: #1f4662; }
+    
+    .warning-note {
+      background: #ffedcd;
+      border-left: 4px solid #f5a623;
+      padding: 0.8rem 1.2rem;
+      border-radius: 14px;
+      margin: 1.2rem 0;
+      color: #3b3b1f;
+      font-size: 0.85rem;
+    }
+    body.light .warning-note { background: #fff7e5; }
+    footer { text-align: center; margin-top: 2rem; opacity: 0.6; font-size: 0.75rem; padding-bottom: 1rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div>
+      <h1><i class="fas fa-terminal"></i> PILEAKER INSTALLING DOCUMENTATION · FULL COMMANDS VAULT</h1>
+      <div class="badge-total">✅ All original commands kept · every command has individual copy button · screenshot placeholders included</div>
+    </div>
+    <div class="theme-toggle">
+      <button class="theme-btn active" id="lightModeBtn"><i class="fas fa-sun"></i> Light</button>
+      <button class="theme-btn" id="darkModeBtn"><i class="fas fa-moon"></i> Dark</button>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 1: SYSTEM SETUP ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fab fa-ubuntu"></i> ❶ SYSTEM SETUP & DEPENDENCIES</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">apt update</span><button class="copy-btn" data-cmd="apt update"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">📦 Refresh package index – updates repository lists.</div></div>
+       <div class="command-item"><div class="command-row"><span class="command-text">apt upgrade -y</span><button class="copy-btn" data-cmd="apt upgrade -y"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">📦 Update/Upgrade repository lists.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">apt install python3.12-venv -y</span><button class="copy-btn" data-cmd="apt install python3.12-venv -y"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🐍 Install Python virtual environment module.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">python3 -m venv venv</span><button class="copy-btn" data-cmd="python3 -m venv venv"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🏗️ Create isolated Python environment named 'venv'.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">source venv/bin/activate</span><button class="copy-btn" data-cmd="source venv/bin/activate"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🔌 Activate virtual environment (must run before pip install).</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">apt install npm -y</span><button class="copy-btn" data-cmd="apt install npm -y"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">📦 Install Node.js package manager.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">npm install pm2 -g</span><button class="copy-btn" data-cmd="npm install pm2 -g"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⚡ Install PM2 process manager globally.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">npm install stellar-sdk bip39 ed25519-hd-key express dotenv node-fetch</span><button class="copy-btn" data-cmd="npm install stellar-sdk bip39 ed25519-hd-key express dotenv node-fetch"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⭐ Node dependencies: Stellar SDK, BIP39, HD keys, Express, dotenv.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pip install flask flask-cors requests stellar-sdk mnemonic python-dotenv</span><button class="copy-btn" data-cmd="pip install flask flask-cors requests stellar-sdk mnemonic python-dotenv"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🌶️ Python dependencies: Flask dashboard, CORS, Stellar SDK.</div></div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 2: FILES CREATION ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-file-code"></i> ❷ CREATE CONFIGURATION FILES</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">nano app.py</span><button class="copy-btn" data-cmd="nano app.py"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">📄 Paste the app.py file content and save → Save: CTRL+O, ENTER, CTRL+X</div></div>
+      
+      <div class="command-item"><div class="command-row"><span class="command-text">mkdir data</span><button class="copy-btn" data-cmd="mkdir data"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🗂️ Create data directory for JSON storage.</div></div>
+      
+      <div class="command-item"><div class="command-row"><span class="command-text">nano data/users.json</span><button class="copy-btn" data-cmd="nano data/users.json"><i class="far fa-copy"></i> Copy</button></div>
+      <div class="command-desc">👤 Paste the following JSON and save (CTRL+O, ENTER, CTRL+X):</div>
+      <div class="json-block">
+[
+  {
+    "id": "Pileakers",
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@gmail.com",
+    "created_at": "2026-01-01T00:00:00Z",
+    "telegram_chat_id": "8473474866"
+  }
+]
+      </div>
+      </div>
+      
+      <div class="command-item"><div class="command-row"><span class="command-text">nano .env</span><button class="copy-btn" data-cmd="nano .env"><i class="far fa-copy"></i> Copy</button></div>
+      <div class="command-desc">🔐 Paste the following and save (CTRL+O, ENTER, CTRL+X):</div>
+      <div class="json-block">
+TELEGRAM_BOT_TOKEN="8473474866%3AAAGkldHvcmJkkqbt-FdrO46kX-K4MVtLa9A"
+TELEGRAM_CHAT_ID="7890743177"
+WEB_SERVICE_URL=http://server-ip:3000
+      </div>
+      </div>
+      
+      <div class="command-item"><div class="command-row"><span class="command-text">nano index.js</span><button class="copy-btn" data-cmd="nano index.js"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🤖 Copy-paste the index.js code → Save: CTRL+O, ENTER, CTRL+X</div></div>
+      
+      <div class="command-item"><div class="command-row"><span class="command-text">nano bump.txt</span><button class="copy-btn" data-cmd="nano bump.txt"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">📝 Enter an empty phrase per line that does not have coins. Based on your Worker list. For 10 Workers add 1000 phrases.</div></div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 3: START DASHBOARD & WORKERS ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-play-circle"></i> ❸ LAUNCH DASHBOARD & WORKERS</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start app.py</span><button class="copy-btn" data-cmd="pm2 start app.py"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🌐 Start the app page/homepage or login page → accessible at http://server-ip:3000</div></div>
+      
+      <div class="command-item"><div class="command-row"><span class="command-text">source venv/bin/activate</span><button class="copy-btn" data-cmd="source venv/bin/activate"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🔌 Activate virtual environment before starting workers.</div></div>
+      
+      <div class="command-item">
+        <div class="command-row">
+          <span class="command-text">
+            pm2 start index.js --name worker-1 -- Worker1<br>
+            pm2 start index.js --name worker-2 -- Worker2<br>
+            pm2 start index.js --name worker-3 -- Worker3<br>
+            pm2 start index.js --name worker-4 -- Worker4<br>
+            pm2 start index.js --name worker-5 -- Worker5<br>
+            pm2 start index.js --name worker-6 -- Worker6<br>
+            pm2 start index.js --name worker-7 -- Worker7<br>
+            pm2 start index.js --name worker-8 -- Worker8<br>
+            pm2 start index.js --name worker-9 -- Worker9<br>
+            pm2 start index.js --name worker-10 -- Worker10
+          </span>
+          <button class="copy-btn" data-cmd="pm2 start index.js --name worker-1 -- Worker1
+pm2 start index.js --name worker-2 -- Worker2
+pm2 start index.js --name worker-3 -- Worker3
+pm2 start index.js --name worker-4 -- Worker4
+pm2 start index.js --name worker-5 -- Worker5
+pm2 start index.js --name worker-6 -- Worker6
+pm2 start index.js --name worker-7 -- Worker7
+pm2 start index.js --name worker-8 -- Worker8
+pm2 start index.js --name worker-9 -- Worker9
+pm2 start index.js --name worker-10 -- Worker10"><i class="far fa-copy"></i> Copy All</button>
+        </div>
+        <div class="command-desc">🚀 Start Workers 1 through 10</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 4: START APP & WORKERS (FULL 10 WORKER COMMANDS) ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-play-circle"></i> ❸ LAUNCH DASHBOARD & WORKERS ONE BY ONE</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-1 -- Worker1</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-1 -- Worker1"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 1</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-2 -- Worker2</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-2 -- Worker2"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 2</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-3 -- Worker3</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-3 -- Worker3"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 3</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-4 -- Worker4</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-4 -- Worker4"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 4</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-5 -- Worker5</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-5 -- Worker5"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 5</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-6 -- Worker6</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-6 -- Worker6"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 6</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-7 -- Worker7</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-7 -- Worker7"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 7</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-8 -- Worker8</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-8 -- Worker8"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 8</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-9 -- Worker9</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-9 -- Worker9"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 9</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start index.js --name worker-10 -- Worker10</span><button class="copy-btn" data-cmd="pm2 start index.js --name worker-10 -- Worker10"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Start Worker 10</div></div>
+      </div>
+  </div>
+
+ 
+  <!-- ========== SECTION 4: SHORT COMMANDS ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-bolt"></i> ❹ SHORT COMMANDS <i class="fas fa-play-circle"></i> ❸ IF YOU DON"T WANT TO REGISTER ONE BY ONE</div>
+    <div class="section-content">        
+      <div class="command-item"><div class="command-row"><span class="command-text">for i in {1..10}; do pm2 start index.js --name worker-$i -- Worker$i; done</span><button class="copy-btn" data-cmd="for i in {1..10}; do pm2 start index.js --name worker-$i -- Worker$i; done"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🔄 Loop command to register all workers at once</div></div>
+      
+      <div><strong>👉 Start all workers at once (after config/registartion):</strong></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 start worker-1 worker-2 worker-3 worker-4 worker-5 worker-6 worker-7 worker-8 worker-9 worker-10</span><button class="copy-btn" data-cmd="pm2 start worker-1 worker-2 worker-3 worker-4 worker-5 worker-6 worker-7 worker-8 worker-9 worker-10"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⚡ Start all workers at once (after initial registration)</div></div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 5: PM2 MANAGEMENT ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-chart-line"></i> ❺ PM2 CONTROL & MONITORING</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 status</span><button class="copy-btn" data-cmd="pm2 status"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Display running processes status.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 logs</span><button class="copy-btn" data-cmd="pm2 logs"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Stream real-time logs for debugging.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 stop all</span><button class="copy-btn" data-cmd="pm2 stop all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🛑 After making any changes, stop all tasks.Gracefully stop every process.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 restart all</span><button class="copy-btn" data-cmd="pm2 restart all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🔄 Use after to restart all processes.Restart all (after server/worker changes).</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 delete all</span><button class="copy-btn" data-cmd="pm2 delete all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Remove all processes from PM2 registry.Remove all processes from PM2 registry.</div></div>
+    </div>
+  </div>
+
+
+  <!-- ========== SECTION 7: OPEN BROWSER & UI STEPS ========== -->
+ <div class="section">
+    <div class="section-header"><i class="fas fa-globe"></i> ❼ OPEN BROWSER & CONFIGURE UI</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">http://ip-server-bot:3000</span><button class="copy-btn" data-cmd="http://ip-server-bot:3000"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">🌐 Open browser, paste ip-server-bot:3000 → Log in here (admin/admin)</div></div>
+      
+      <div class="command-desc" style="margin-top: 1rem;"><strong>📌 Steps after login:</strong></div>
+      <div class="command-desc">1️⃣ Click Server → Add the 1st image.</div>
+      <div class="command-desc">2️⃣ Add servers like those shown in photos 2 and 3.</div>
+      <div class="command-desc">3️⃣ Then go to Worker and add Workers one by one, as shown in image 4.</div>
+      <div class="command-desc">4️⃣ Servers will be shown like image 5.</div>
+      <div class="command-desc">5️⃣ Workers will look like image 6.</div>
+      
+      <div class="image-gallery">
+        <div class="image-card" onclick="showImagePopup('images/img1.webp', 'IMAGE 1: Main Bot Menu')">
+          <img src="images/img1.webp" alt="Main Bot Menu" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-bars image-icon" style="display: none;"></i>
+          <span class="image-filename">images/img1.webp</span>
+          <div class="image-caption">📸 IMAGE 1 · Main Navigation Menu</div>
+          <div class="mock-preview">BOT | CHANGE PASSWORD | TIMEZONE | WALLETS | SERVERS | WORKERS</div>
+        </div>
+        <div class="image-card" onclick="showImagePopup('images/img2.webp', 'IMAGE 2: Add New Server (Server 1)')">
+          <img src="images/img2.webp" alt="Add Server 1" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-server image-icon" style="display: none;"></i>
+          <span class="image-filename">images/img2.webp</span>
+          <div class="image-caption">📸 IMAGE 2 · Add New Server (Server 1)</div>
+          <div class="mock-preview">NAME: Server 1 | URL: http://206.189.158.159:31401</div>
+        </div>
+        <div class="image-card" onclick="showImagePopup('images/img3.webp', 'IMAGE 3: Add New Server (Server 2)')">
+          <img src="images/img3.webp" alt="Add Server 2" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-plus-circle image-icon" style="display: none;"></i>
+          <span class="image-filename">images/img3.webp</span>
+          <div class="image-caption">📸 IMAGE 3 · Add New Server (Server 2)</div>
+          <div class="mock-preview">NAME: Server 2 | URL: http://139.59.100.56:31401</div>
+        </div>
+        <div class="image-card" onclick="showImagePopup('images/img4.webp', 'IMAGE 4: Add Worker (bind to server IP)')">
+          <img src="images/img4.webp" alt="Add Worker bound to server" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-hard-hat image-icon" style="display: none;"></i>
+          <span class="image-filename">images/img4.webp</span>
+          <div class="image-caption">📸 IMAGE 4 · Add Worker (bind to server IP)</div>
+          <div class="mock-preview">NAME: Worker1 | SERVER: Server 1 (206.189.158.159)</div>
+        </div>
+        <div class="image-card" onclick="showImagePopup('images/img5.webp', 'IMAGE 5: Configured Servers List')">
+          <img src="images/img5.webp" alt="Configured servers list" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-list-ul image-icon" style="display: none;"></i>
+          <span class="image-filename">images/img5.webp</span>
+          <div class="image-caption">📸 IMAGE 5 · Configured Servers</div>
+          <div class="mock-preview">Server 1 | Server 2 | Server 3 ... Server 9</div>
+        </div>
+        <div class="image-card" onclick="showImagePopup('images/img6.webp', 'IMAGE 6: Workers with DELETE buttons')">
+          <img src="images/img6.webp" alt="Workers with DELETE buttons" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-trash-alt image-icon" style="display: none;"></i>
+          <span class="image-filename">images/img6.webp</span>
+          <div class="image-caption">📸 IMAGE 6 · Workers + Delete Option</div>
+          <div class="mock-preview">Worker1 | Server 1 [DELETE] | Worker2 | Server 2 [DELETE]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Popup Modal -->
+  <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; cursor: pointer; align-items: center; justify-content: center;" onclick="closeImagePopup()">
+    <div style="position: relative; max-width: 90%; max-height: 90%;">
+      <img id="popupImage" src="" alt="Popup" style="max-width: 100%; max-height: 90vh; border-radius: 12px; display: block; margin: auto;">
+      <div id="popupCaption" style="text-align: center; color: white; margin-top: 15px; font-family: monospace;"></div>
+      <button style="position: absolute; top: -40px; right: 0; background: red; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer;">✕ Close</button>
+    </div>
+  </div>
+  <!-- ========== SECTION 8: TIMEZONE CRITICAL NOTE ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-hourglass-half"></i> ❽ TIMEZONE RULE (CRITICAL)</div>
+    <div class="section-content">
+      <div class="warning-note">
+        <i class="fas fa-clock"></i> <strong>Every time you open your bot in another browser, make sure you set the time zone first.</strong><br><br>
+        For example, now you open it on your computer's Chrome and you set the time zone.<br>
+        And when you open it on your phone, you have to set the time zone again. (Image 7)
+      </div>
+      <div class="image-card" onclick="showImagePopup('images/img7.webp', 'IMAGE 7: Set Timezone (per browser/device)')">
+          <img src="images/img7.webp" alt="Timezone menu" style="width: 100%; border-radius: 12px; margin-bottom: 8px; cursor: pointer; max-width: 300px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+          <i class="fas fa-clock image-icon" style="display: none;"></i>
+          <div class="image-caption">📸 IMAGE 7 · Set Timezone (per browser/device)</div>
+          <div class="mock-preview">MENU → UTC+0 → TIMEZONE → select zone</div>
+        </div>
+    </div>
+  </div>
+
+    <!-- ========== SECTION 6: RESET / DEAD SERVERS ========== -->
+  <div class="section">
+    <div class="section-header"><i class="fas fa-trash-alt"></i> ❻ RESET & DATA WIPE (When Servers Dead)</div>
+    <div class="section-content">
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 stop all</span><button class="copy-btn" data-cmd="pm2 stop all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Step 1: Stop all tasks.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">rm -rf data</span><button class="copy-btn" data-cmd="rm -rf data"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⚠️ It will remove all the data in the data folder (servers, workers, users). Use when server IPs are dead.</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 stop all</span><button class="copy-btn" data-cmd="pm2 stop all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Command to stop everything</div></div>
+      <div class="command-item"><div class="command-row"><span class="command-text">pm2 delete all</span><button class="copy-btn" data-cmd="pm2 delete all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">To delete everything.</div></div>
+      <div class="warning-note"><i class="fas fa-skull-crosswalk"></i> <strong>Dead server workflow:</strong> pm2 stop all → rm -rf data → pm2 delete all → restart app.py → re-add servers via UI (images 2-3) → re-bind workers (image 4).</div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fas fa-check-circle"></i> All original commands kept | Dark/Light mode
+  </footer>
+</div>
+
+<script>
+  const lightBtn = document.getElementById('lightModeBtn');
+  const darkBtn = document.getElementById('darkModeBtn');
+  const bodyEl = document.body;
+
+  function setTheme(theme) {
+    if (theme === 'light') {
+      bodyEl.classList.add('light');
+      lightBtn.classList.add('active');
+      darkBtn.classList.remove('active');
+      localStorage.setItem('cmdTheme', 'light');
+    } else {
+      bodyEl.classList.remove('light');
+      darkBtn.classList.add('active');
+      lightBtn.classList.remove('active');
+      localStorage.setItem('cmdTheme', 'dark');
+    }
+  }
+  lightBtn.addEventListener('click', () => setTheme('light'));
+  darkBtn.addEventListener('click', () => setTheme('dark'));
+  const savedTheme = localStorage.getItem('cmdTheme');
+  if (savedTheme === 'light') setTheme('light');
+  else setTheme('dark');
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const cmdValue = this.getAttribute('data-cmd');
+      if (cmdValue) {
+        navigator.clipboard.writeText(cmdValue).then(() => {
+          const originalHTML = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check-circle"></i> Copied!';
+          setTimeout(() => { this.innerHTML = originalHTML; }, 1300);
+        }).catch(() => alert('Copy manually'));
+      }
+    });
+  });
+    function showImagePopup(imageSrc, caption) {
+      document.getElementById('popupImage').src = imageSrc;
+      document.getElementById('popupCaption').innerHTML = caption;
+      document.getElementById('imageModal').style.display = 'flex';
+    }
+    function closeImagePopup() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
