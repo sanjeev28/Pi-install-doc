@@ -1,4 +1,4 @@
-# 🚀 Pi Install Documentation
+# 🚀 PiLeaker Install Documentation
 
 Simple and structured setup guide for running the Pi Bot with servers, workers, and PM2.
 
