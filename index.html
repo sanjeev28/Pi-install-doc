@@ -422,7 +422,7 @@ pm2 start index.js --name worker-10 -- Worker10"><i class="far fa-copy"></i> Cop
 
     <!-- ========== SECTION 6: RESET / DEAD SERVERS ========== -->
   <div class="section">
-    <div class="section-header"><i class="fas fa-trash-alt"></i> ❻ RESET & DATA WIPE (When Servers Dead)</div>
+    <div class="section-header"><i class="fas fa-dumpster-fire"></i> ❻ IF SERVER SUDDUNLY DEAD OR BACKEND WORK BUT NO FRONTEND</div>
     <div class="section-content">
       <div class="command-item"><div class="command-row"><span class="command-text">source venv/bin/activate</span><button class="copy-btn" data-cmd="source venv/bin/activate"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Enter into enev using it. </div></div>
       <div class="command-item"><div class="command-row"><span class="command-text">npm install stellar-sdk bip39 ed25519-hd-key ed25519-hd-key@1.2.0 express dotenv node-fetch</span><button class="copy-btn" data-cmd="npm install stellar-sdk bip39 ed25519-hd-key ed25519-hd-key@1.2.0 express dotenv node-fetch"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⚠️ Update library or install new Updated library </div></div>
@@ -430,12 +430,13 @@ pm2 start index.js --name worker-10 -- Worker10"><i class="far fa-copy"></i> Cop
       <div class="command-item"><div class="command-row"><span class="command-text">ls</span><button class="copy-btn" data-cmd="ls"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">if above commands still do not work, then check the list of files.</div></div>
        <div class="command-item"><div class="command-row"><span class="command-text">clear</span><button class="copy-btn" data-cmd="clear"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Clear all the logs or cmd or shell .</div></div>
           <div class="command-item"><div class="command-row"><span class="command-text">pm2 start app.py --name flask-api --interpreter python</span><button class="copy-btn" data-cmd="pm2 start app.py --name flask-api --interpreter python"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Run this command to fix everything.</div></div>
-      <div class="success-note"><i class="fas fa-skull-crosswalk"></i> <strong>Dead server workflow:</strong> pm2 stop all → rm -rf data → pm2 delete all → restart app.py → re-add servers via UI (images 2-3) → re-bind workers (image 4).</div>
+      x
+          <div class="warning-note"><i class="fas fa-skull-crosswalk"></i> <strong>Time to Check Frontend:</strong> Now hit the http://ip:3000 in  browser. You can also use hard refresh.</div>
     </div>
   </div>
 
 <div class="section">
-    <div class="section-header"><i class="fas fa-trash-alt"></i> ❻ IF SERVER SUDDUNLY DEAD OR BACKEND WORK BUT NO FRONTEND</div>
+    <div class="section-header"><i class="fas fa-trash-alt"></i> ❻ RESET & DATA WIPE (When Servers Dead)</div>
     <div class="section-content">
       <div class="command-item"><div class="command-row"><span class="command-text">pm2 stop all</span><button class="copy-btn" data-cmd="pm2 stop all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Step 1: Stop all tasks.</div></div>
       <div class="command-item"><div class="command-row"><span class="command-text">rm -rf data</span><button class="copy-btn" data-cmd="rm -rf data"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⚠️ It will remove all the data in the data folder (servers, workers, users). Use when server IPs are dead.</div></div>
