@@ -440,7 +440,7 @@ pm2 start index.js --name worker-10 -- Worker10"><i class="far fa-copy"></i> Cop
       <div class="command-item"><div class="command-row"><span class="command-text">rm -rf data</span><button class="copy-btn" data-cmd="rm -rf data"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">⚠️ It will remove all the data in the data folder (servers, workers, users). Use when server IPs are dead.</div></div>
       <div class="command-item"><div class="command-row"><span class="command-text">pm2 stop all</span><button class="copy-btn" data-cmd="pm2 stop all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Command to stop everything</div></div>
       <div class="command-item"><div class="command-row"><span class="command-text">pm2 delete all</span><button class="copy-btn" data-cmd="pm2 delete all"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">To delete everything.</div></div>
-      <div class="warning-note"><i class="fas fa-skull-crossbones"></i> <strong>Time to Check Frontend:</strong> Now hit the http://ip:3000 in  browser. You can also use hard refresh.</div>
+      <div class="warning-note"><i class="fas fa-skull-crossbones"></i> <strong>Dead server workflow:</strong> pm2 stop all → rm -rf data → pm2 delete all → restart app.py → re-add servers via UI (images 2-3) → re-bind workers (image 4).</div>
     </div>
   </div>
 
@@ -454,7 +454,7 @@ pm2 start index.js --name worker-10 -- Worker10"><i class="far fa-copy"></i> Cop
       <div class="command-item"><div class="command-row"><span class="command-text">ls</span><button class="copy-btn" data-cmd="ls"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">if above commands still do not work, then check the list of files.</div></div>
        <div class="command-item"><div class="command-row"><span class="command-text">clear</span><button class="copy-btn" data-cmd="clear"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Clear all the logs or cmd or shell .</div></div>
        <div class="command-item"><div class="command-row"><span class="command-text">pm2 start app.py --name flask-api --interpreter python</span><button class="copy-btn" data-cmd="pm2 start app.py --name flask-api --interpreter python"><i class="far fa-copy"></i> Copy</button></div><div class="command-desc">Run this command to fix everything.</div></div>
-      <div class="success-note"><i class="fas fa-skull-crossbones"></i> <strong>Time to Check Frontend:</strong> Now hit the http://ip:3000 in  browser. You can also use hard refresh.</div>
+      <div class="success-note"><i class="fas fa-skull-crossbones"></i> <strong>Time to Check Frontend:</strong> Now hit the http://ip:3000 in  browser. You can also use a hard refresh.</div>
     </div>
   </div>
 
